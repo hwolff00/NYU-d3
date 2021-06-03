@@ -68,7 +68,7 @@
       return result;
     }, {})
 
-    //We use this to convert the dictionary produced by the code above, into a list, that will make it easier to create the visualization.
+    //Use this to convert the dictionary produced by the code above, into a list, that will make it easier to create the visualization.
     result = Object.keys(result).map(key => result[key])
     result = result.sort(function(a, b) {
       return d3.descending(a.Count, b.Count);
@@ -93,7 +93,7 @@
       left: 130,
       right: 10
     }
-    //The body is the are that will be occupied by the bars.
+    //The body is the area that will be occupied by the bars.
     let bodyHeight = height - margin.top - margin.bottom;
     let bodyWidth = width - margin.right - margin.left;
 
@@ -175,9 +175,6 @@
     .on("mouseleave", function(event, d) {drawRoutes(null)
         d3.select(this).attr("fill", "#2a5599")
       })
-    //TODO: Add another listener, this time for mouseleave
-    //TODO: In this listener, call drawRoutes(null), this will cause the function to remove all lines in the chart since there is no airline withe AirlineID == null.
-    //TODO: change the fill color of the bar back to "#2a5599"
   }
 
   function drawAxesAirlinesChart(airlines, scales, config) {
@@ -334,7 +331,6 @@
 
       bindedData.exit().remove()
       //console.log(projection)
-    //TODO: use exit function over bindedData to remove any routes that does not satisfy the filter.
 }
 
   function showData() {
